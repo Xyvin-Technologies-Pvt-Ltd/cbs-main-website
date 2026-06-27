@@ -47,7 +47,8 @@ jobs:
           username: ${{ secrets.LIGHTSAIL_USER }}
           key: ${{ secrets.LIGHTSAIL_KEY }}
           script: |
-            sudo rm -rf /var/www/html/*
-            sudo mv ~/deploy-temp/* /var/www/html/
+            sudo mkdir -p /var/www/html/cbs-main
+            sudo rm -rf /var/www/html/cbs-main/*
+            sudo mv ~/deploy-temp/* /var/www/html/cbs-main/
             sudo rm -rf ~/deploy-temp
             sudo systemctl restart nginx || echo "Nginx not used"
